@@ -1,0 +1,21 @@
+# Configurations
+!! IOS XR Configuration 7.3.1.23I
+hostname Bhubaneswar
+interface Loopback 2
+ ipv4 address 192.168.10.3 255.255.255.255
+ no shutdown
+!
+router isis 102
+ is-type level-2-only
+ net 49.100.1921.6801.0003.00
+ address-family ipv4 unicast
+  metric-style wide
+ !
+ interface Loopback 2
+  passive
+  address-family ipv4 unicast
+  !
+ !
+!
+end
+commit

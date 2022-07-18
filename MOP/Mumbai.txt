@@ -1,0 +1,21 @@
+# Configurations
+!! IOS XR Configuration 7.3.1.23I
+hostname Mumbai
+interface Loopback 4
+ ipv4 address 192.168.10.5 255.255.255.255
+ no shutdown
+!
+router isis 104
+ is-type level-2-only
+ net 49.100.1921.6801.0005.00
+ address-family ipv4 unicast
+  metric-style wide
+ !
+ interface Loopback 4
+  passive
+  address-family ipv4 unicast
+  !
+ !
+!
+end
+commit
