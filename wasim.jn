@@ -1,0 +1,21 @@
+# Configurations
+!! IOS XR Configuration 7.3.1.23I
+hostname {{Name}}
+interface Loopback {{LB_Name}}
+ ipv4 address {{LB_IP}} 255.255.255.255
+ no shutdown
+!
+router isis {{P_Name}}
+ is-type level-2-only
+ net 49.{{Area_ID}}.{{System_ID}}.00
+ address-family ipv4 unicast
+  metric-style wide
+ !
+ interface Loopback {{LB_Name}}
+  passive
+  address-family {{Family_name}} unicast
+  !
+ !
+!
+end
+commit
